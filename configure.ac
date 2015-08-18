@@ -129,6 +129,17 @@ dnl -- Check for getopt
 AC_CHECK_HEADERS(getopt.h, AC_DEFINE([HAVE_GETOPTLONG], 1, [Define to 1 if getopt_long is available.]))
 
 ################################################################################
+dnl -- Enable static link build
+AC_MSG_CHECKING(whether to build static link version)
+AC_ARG_ENABLE(static, AC_HELP_STRING([--enable-static], [enable static link build]),
+              STATIC=$enableval, STATIC=no)
+AC_MSG_RESULT($STATIC)
+
+if test x$STATIC = xyes; then
+        CXXSTATIC_FLAG=-static
+fi
+
+################################################################################
 THIN_PROVISIONING_TOOLS_VERSION="\"`cat "$srcdir"/VERSION 2>/dev/null || echo Unknown`\""
 
 VER=`cat "$srcdir"/VERSION`
@@ -143,6 +154,7 @@ VERSION_PATCHLEVEL=`echo "$VER" | $AWK -F '[[(.]]' '{print $3}'`
 ################################################################
 AC_SUBST(CXXDEBUG_FLAG)
 AC_SUBST(CXXOPTIMISE_FLAG)
+AC_SUBST(CXXSTATIC_FLAG)
 AC_SUBST(CXX_STRERROR_FLAG)
 AC_SUBST(INSTALL)
 AC_SUBST(prefix)

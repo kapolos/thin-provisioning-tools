@@ -99,6 +99,7 @@ CFLAGS+=-g -Wall -O3
 CXXFLAGS+=-g -Wall -fno-strict-aliasing
 CXXFLAGS+=@CXXOPTIMISE_FLAG@
 CXXFLAGS+=@CXXDEBUG_FLAG@
+CXXFLAGS+=@CXXSTATIC_FLAG@
 CXXFLAGS+=@CXX_STRERROR_FLAG@
 INCLUDES+=-I$(TOP_BUILDDIR) -I$(TOP_DIR) -I$(TOP_DIR)/thin-provisioning
 LIBS:=-lstdc++ -laio -lexpat
