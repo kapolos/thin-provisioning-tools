@@ -19,7 +19,7 @@
 V=@
 
 PROGRAMS=\
-	bin/pdata_tools
+	bin/convoy-pdata_tools
 
 .PHONY: all
 all: $(PROGRAMS)
@@ -139,7 +139,7 @@ lib/libpdata.a: $(OBJECTS)
 	@echo "    [AR]  $<"
 	$(V)ar -rv $@ $(OBJECTS) > /dev/null 2>&1
 
-bin/pdata_tools: $(OBJECTS)
+bin/convoy-pdata_tools: $(OBJECTS)
 	@echo "    [LD]  $@"
 	$(V) $(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $+ $(LIBS)
 
@@ -162,26 +162,26 @@ clean:
 distclean: clean
 	$(RM) config.cache config.log config.status configure.h version.h Makefile unit-tests/Makefile
 
-install: bin/pdata_tools
+install: bin/convoy-pdata_tools
 	$(INSTALL_DIR) $(BINDIR)
-	$(INSTALL_PROGRAM) bin/pdata_tools $(BINDIR)
-	ln -s -f pdata_tools $(BINDIR)/cache_check
-	ln -s -f pdata_tools $(BINDIR)/cache_dump
-	ln -s -f pdata_tools $(BINDIR)/cache_metadata_size
-	ln -s -f pdata_tools $(BINDIR)/cache_repair
-	ln -s -f pdata_tools $(BINDIR)/cache_restore
-	ln -s -f pdata_tools $(BINDIR)/thin_check
-	ln -s -f pdata_tools $(BINDIR)/thin_delta
-	ln -s -f pdata_tools $(BINDIR)/thin_dump
-	ln -s -f pdata_tools $(BINDIR)/thin_repair
-	ln -s -f pdata_tools $(BINDIR)/thin_restore
-	ln -s -f pdata_tools $(BINDIR)/thin_rmap
-	ln -s -f pdata_tools $(BINDIR)/thin_trim
-	ln -s -f pdata_tools $(BINDIR)/thin_metadata_size
-	ln -s -f pdata_tools $(BINDIR)/era_check
-	ln -s -f pdata_tools $(BINDIR)/era_dump
-	ln -s -f pdata_tools $(BINDIR)/era_invalidate
-	ln -s -f pdata_tools $(BINDIR)/era_restore
+	$(INSTALL_PROGRAM) bin/convoy-pdata_tools $(BINDIR)
+	ln -s -f convoy-pdata_tools $(BINDIR)/cache_check
+	ln -s -f convoy-pdata_tools $(BINDIR)/cache_dump
+	ln -s -f convoy-pdata_tools $(BINDIR)/cache_metadata_size
+	ln -s -f convoy-pdata_tools $(BINDIR)/cache_repair
+	ln -s -f convoy-pdata_tools $(BINDIR)/cache_restore
+	ln -s -f convoy-pdata_tools $(BINDIR)/thin_check
+	ln -s -f convoy-pdata_tools $(BINDIR)/thin_delta
+	ln -s -f convoy-pdata_tools $(BINDIR)/thin_dump
+	ln -s -f convoy-pdata_tools $(BINDIR)/thin_repair
+	ln -s -f convoy-pdata_tools $(BINDIR)/thin_restore
+	ln -s -f convoy-pdata_tools $(BINDIR)/thin_rmap
+	ln -s -f convoy-pdata_tools $(BINDIR)/thin_trim
+	ln -s -f convoy-pdata_tools $(BINDIR)/thin_metadata_size
+	ln -s -f convoy-pdata_tools $(BINDIR)/era_check
+	ln -s -f convoy-pdata_tools $(BINDIR)/era_dump
+	ln -s -f convoy-pdata_tools $(BINDIR)/era_invalidate
+	ln -s -f convoy-pdata_tools $(BINDIR)/era_restore
 	$(INSTALL_DIR) $(MANPATH)/man8
 	$(INSTALL_DATA) man8/cache_check.8 $(MANPATH)/man8
 	$(INSTALL_DATA) man8/cache_dump.8 $(MANPATH)/man8

@@ -14,7 +14,7 @@ application::run(int argc, char **argv)
 {
 	string cmd = get_basename(argv[0]);
 
-	if (cmd == string("pdata_tools")) {
+	if (cmd == string("convoy-pdata_tools")) {
 		argc--;
 		argv++;
 
